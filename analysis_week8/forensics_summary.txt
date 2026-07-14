@@ -1,0 +1,79 @@
+Dataset Forensics Summary
+========================
+
+Dataset: oulad_ml_table_week8.csv
+Rows: 32593
+Columns: 55
+Memory: 31.14 MB
+
+Data types:
+  float64: 41
+  object: 10
+  int64: 4
+
+Duplicate rows: 0
+Constant columns: 4
+  week10_clicks, week11_clicks, week12_clicks, activity_type_diversity
+Low variance columns: 0
+Impossible values detected:
+  click_growth_rate: min=-184.77622377622373, max=29.398601398601397
+  assessment_score_trend: min=-70.0, max=81.0
+  registration_early_days: min=-322.0, max=167.0
+ID-like columns:
+  id_student: duplicates=3808, unique_ratio=0.883, expected_unique=False
+---
+Target distribution preview:
+final_result  proportion
+        Pass    0.379253
+   Withdrawn    0.311601
+        Fail    0.216365
+ Distinction    0.092781
+---
+Top feature quality preview:
+                    feature    type  mutual_info recommendation
+                  avg_score numeric     0.223408           KEEP
+                    last_ts numeric     0.214989           KEEP
+assessment_completion_ratio numeric     0.182854       OPTIONAL
+        last_assessment_day numeric     0.175515       OPTIONAL
+            inactivity_days numeric     0.174278       OPTIONAL
+         missed_assessments numeric     0.171913       OPTIONAL
+                days_active numeric     0.170050       OPTIONAL
+          clicks_per_credit numeric     0.168428       OPTIONAL
+               active_weeks numeric     0.164754       OPTIONAL
+        week_click_sum_1_12 numeric     0.162428       OPTIONAL
+             activity_count numeric     0.160889       OPTIONAL
+               total_clicks numeric     0.156396       OPTIONAL
+       assessments_per_week numeric     0.153059       OPTIONAL
+          click_growth_rate numeric     0.151448       OPTIONAL
+               week8_clicks numeric     0.148686       OPTIONAL
+       first_assessment_day numeric     0.148435       OPTIONAL
+               week7_clicks numeric     0.148099       OPTIONAL
+        credits_per_attempt numeric     0.147249       OPTIONAL
+             click_variance numeric     0.146367       OPTIONAL
+            num_assessments numeric     0.145996       OPTIONAL
+---
+Leakage preview:
+             feature leakage_status
+         code_module           Safe
+   code_presentation           Safe
+          id_student           Safe
+              gender           Safe
+              region           Safe
+   highest_education           Safe
+            imd_band           Safe
+            age_band           Safe
+num_of_prev_attempts           Safe
+     studied_credits           Safe
+          disability           Safe
+        final_result         Target
+        total_clicks          Risky
+      activity_count          Risky
+            first_ts          Risky
+             last_ts          Risky
+         days_active          Risky
+  avg_clicks_per_day          Risky
+     inactivity_days          Risky
+        active_weeks          Risky
+---
+Temporal analysis:
+Temporal analysis skipped: cannot detect click or week column in studentVle.

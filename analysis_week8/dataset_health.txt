@@ -1,0 +1,20 @@
+Dataset: oulad_ml_table_week8.csv
+Rows: 32593
+Columns: 55
+Memory: 31.14 MB
+
+Data types:
+  float64: 41
+  object: 10
+  int64: 4
+
+Duplicate rows: 0
+Constant columns: 4
+  week10_clicks, week11_clicks, week12_clicks, activity_type_diversity
+Low variance columns: 0
+Impossible values detected:
+  click_growth_rate: min=-184.77622377622373, max=29.398601398601397
+  assessment_score_trend: min=-70.0, max=81.0
+  registration_early_days: min=-322.0, max=167.0
+ID-like columns:
+  id_student: duplicates=3808, unique_ratio=0.883, expected_unique=False

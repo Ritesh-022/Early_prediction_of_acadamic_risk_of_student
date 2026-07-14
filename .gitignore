@@ -1,0 +1,41 @@
+# Model checkpoints and trained weights
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.pkl
+checkpoints/
+models/
+
+# Generated results
+results/
+outputs/
+runs/
+logs/
+
+# Cache and temporary files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.cache/
+
+# Environment
+.env
+venv/
+.venv/
+
+# Datasets
+*.json
+*.xlsx
+*.xls
+*.parquet
+data/
+datasets/
+
+# Ignore all CSVs except root-level ones
+*.csv
+!oulad_ml_table.csv
+!oulad_ml_table_v2.csv
+!oulad_ml_table_week8.csv
+!Placement_Data_Full_Class.csv
+!Student Mental health.csv
