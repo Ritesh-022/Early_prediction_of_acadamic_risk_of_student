@@ -36,50 +36,140 @@ and a unified multi-source platform with SHAP explainability.
 
 ```
 .
-├── PIPELINE SCRIPTS
-│   ├── oulad_pipeline.py              # Step 1a: build oulad_ml_table.csv from raw OULAD CSVs
-│   ├── oulad_pipeline_v2.py           # Step 1b: richer temporal features → oulad_ml_table_v2.csv
-│   ├── oulad_baseline.py              # Step 2:  baseline XGB/LGB/CAT/RF on the ML table
-│   ├── high_accuracy_pipeline.py      # Step 3:  high-accuracy 4-model training (XGB/LGB/CAT/RF)
-│   ├── extended_models_pipeline.py    # Step 4:  extended models (ET/BDT/DT/MLP/DNN)
-│   ├── generate_missing_shap.py       # Step 5:  fill any missing SHAP files
-│   ├── update_main_results.py         # Step 6:  regenerate all 10 comparison figures
-│   ├── hierarchical_pipeline.py       # Optional: cascaded binary→4-class architecture
-│   ├── multisource_ablation.py        # Optional: unified OULAD+xAPI+UCI platform
-│   ├── synthetic_platform.py          # Optional: single CatBoost multi-source platform
-│   └── generate_all_figures.py        # Optional: full 35-figure paper figure generator
+├── .gitignore
+├── README.md
+├── requirements.txt
+├── OULAD_All_Models_Colab.ipynb
 │
-├── UTILITIES
-│   ├── download_datasets.py           # Auto-download UCI datasets
-│   ├── dataset_analysis.py            # General CSV audit and feature quality report
-│   ├── oulad_dataset_forensics.py     # Deep OULAD data quality audit
-│   ├── check_fixes.py                 # Verify all research integrity fixes are in place
-│   ├── build_colab_notebook.py        # Regenerate the Colab notebook from source
-│   └── dir_str_with_file.py           # Print workspace file tree
+├── Placement_Data_Full_Class.csv
+├── Student Mental health.csv
+├── oulad_ml_table.csv
+├── oulad_ml_table_v2.csv
+├── oulad_ml_table_week8.csv
 │
-├── NOTEBOOKS
-│   └── OULAD_All_Models_Colab.ipynb   # Google Colab: all 9 models end-to-end (GPU support)
+├── branch_diagnosis_v2.py
+├── branch_optimizer.py
+├── build_colab_notebook.py
+├── check_fixes.py
+├── dataset_analysis.py
+├── diagnose.py
+├── diagnose2.py
+├── dir_str_with_file.py
+├── download_datasets.py
+├── extended_models_pipeline.py
+├── generate_all_figures.py
+├── generate_main_results.py
+├── generate_missing_shap.py
+├── hierarchical_pipeline.py
+├── high_accuracy_pipeline.py
+├── multi_source_pipeline.py
+├── multisource_ablation.py
+├── oulad_baseline.py
+├── oulad_dataset_forensics.py
+├── oulad_pipeline.py
+├── oulad_pipeline_v2.py
+├── research_main_graphs.py
+├── synthetic_platform.py
+├── unified_pipeline.py
+├── update_main_results.py
 │
-├── DATA (not committed — see Step 0)
-│   ├── oulad_ml_table.csv             # Built by oulad_pipeline.py
-│   ├── oulad_ml_table_v2.csv          # Built by oulad_pipeline_v2.py
-│   ├── oulad_ml_table_week8.csv       # Early-warning table (Week 8 cutoff)
-│   ├── academics/data.csv
-│   ├── dropout/data.csv
-│   ├── xAPI/xAPI-Edu-Data.csv
-│   └── student+performance/student/
+├── OULAD/
+│   └── uci-open-university-learning-analytics-dataset/
+│       └── OULAD.names
 │
-├── RESULTS
-│   ├── results/high_accuracy/         # XGB/LGB/CAT/RF predictions + SHAP
-│   ├── results/extended/              # ET/BDT/DT/MLP predictions + SHAP
-│   ├── results/baseline_benchmark/    # oulad_baseline full-course outputs
-│   ├── results/baseline_week8/        # oulad_baseline Week-8 outputs
-│   ├── results/hierarchical/          # hierarchical_pipeline outputs
-│   ├── results/synthetic_platform/    # synthetic_platform outputs
-│   └── results/all_models_comparison.csv
+├── analysis/
+│   ├── dataset_health.txt
+│   ├── forensics_summary.txt
+│   ├── missing_values.png
+│   ├── target_distribution.png
+│   └── top_feature_quality.png
 │
-└── FIGURES
-    └── figures/main_results/          # B01–B05, M01–M05 publication figures
+├── analysis_week8/
+│   ├── dataset_health.txt
+│   ├── forensics_summary.txt
+│   ├── missing_values.png
+│   ├── target_distribution.png
+│   └── top_feature_quality.png
+│
+├── figures/
+│   ├── 01_oulad_4class_distribution.png
+│   ├── 02_oulad_binary_distribution.png
+│   ├── 03_hierarchical_branch_distribution.png
+│   ├── 04_direct_4class_model_comparison.png
+│   ├── 05_binary_model_comparison.png
+│   ├── 06_week8_model_comparison.png
+│   ├── 07_binary_confusion_matrix.png
+│   ├── 08_direct_4class_confusion_matrix.png
+│   ├── 09_week8_confusion_matrix.png
+│   ├── 10_binary_roc_curve.png
+│   ├── 11_binary_precision_recall_curve.png
+│   ├── 12_multiclass_roc_curves.png
+│   ├── 13_hierarchical_stage_performance.png
+│   ├── 14_stage1_confusion_matrix.png
+│   ├── 15_stage2a_confusion_matrix.png
+│   ├── 16_stage2b_confusion_matrix.png
+│   ├── 17_hierarchical_final_confusion_matrix.png
+│   ├── 18_direct_vs_hierarchical_overall.png
+│   ├── 19_direct_vs_hierarchical_precision.png
+│   ├── 20_direct_vs_hierarchical_recall.png
+│   ├── 21_direct_vs_hierarchical_f1.png
+│   ├── 22_shap_summary.png
+│   ├── 23_shap_feature_importance.png
+│   ├── 24_high_risk_student_shap.png
+│   ├── 25_low_risk_student_shap.png
+│   ├── 26_multisource_ablation.png
+│   ├── 27_per_source_performance.png
+│   ├── 28_feature_ablation.png
+│   ├── 29_multisource_confusion_matrix.png
+│   ├── 30_assessment_score_by_outcome.png
+│   ├── 31_inactivity_by_outcome.png
+│   ├── 32_engagement_by_outcome.png
+│   ├── 33_weekly_engagement_trend.png
+│   ├── 34_prediction_confidence_distribution.png
+│   ├── 35_cross_validation_stability.png
+│   └── main_results/
+│       ├── B01_binary_model_performance.png
+│       ├── B02_binary_confusion_matrix_comparison.png
+│       ├── B03_binary_roc_comparison.png
+│       ├── B04_binary_precision_recall_comparison.png
+│       ├── B05_binary_shap_importance_comparison.png
+│       ├── M01_four_class_model_performance.png
+│       ├── M02_four_class_confusion_matrix_comparison.png
+│       ├── M03_four_class_macro_roc_comparison.png
+│       ├── M04_four_class_classwise_roc.png
+│       └── M05_four_class_shap_importance_comparison.png
+│
+├── research_results/
+│   └── artifacts/
+│       └── pipeline_figures/
+│           ├── results_figures_acc_f1_comparison.png
+│           ├── results_figures_per_class_recall.png
+│           ├── results_figures_roc_auc_comparison.png
+│           ├── results_hierarchical_figures_acc_f1_comparison.png
+│           ├── results_hierarchical_figures_per_class_recall.png
+│           └── results_hierarchical_figures_roc_auc_comparison.png
+│
+├── student+performance/
+│   └── student/
+│       ├── student-merge.R
+│       └── student.txt
+│
+└── UI_student+performance/
+    └── student/
+        ├── student-merge.R
+        └── student.txt
+
+├── main_results/
+│   ├── B01_binary_model_performance.png
+│   ├── B02_binary_confusion_matrix_comparison.png
+│   ├── B03_binary_roc_comparison.png
+│   ├── B04_binary_precision_recall_comparison.png
+│   ├── B05_binary_shap_importance_comparison.png
+│   ├── M01_four_class_model_performance.png
+│   ├── M02_four_class_confusion_matrix_comparison.png
+│   ├── M03_four_class_macro_roc_comparison.png
+│   ├── M04_four_class_classwise_roc.png
+│   └── M05_four_class_shap_importance_comparison.png
 ```
 
 ---
@@ -411,6 +501,45 @@ figure set used in the research paper.
 
 > **Warning:** Full run takes 2–4 hours. Use `--graphs-only` if experiment
 > outputs already exist in `results/`.
+
+---
+
+## 5-Model Research Figures
+
+`research_main_graphs.py` generates 10 publication figures for the five core research
+models — **LightGBM · CatBoost · Random Forest · Bagged DT · Decision Tree** — using
+the same approach as `generate_main_results.py`.
+
+```bash
+python research_main_graphs.py
+```
+
+Reads pre-computed prediction and SHAP CSVs — no model retraining needed:
+
+| Model | Prediction / SHAP source |
+|---|---|
+| LightGBM | `results/high_accuracy/` + `results/` (SHAP fallback) |
+| CatBoost | `results/high_accuracy/` + `results/` (SHAP fallback) |
+| Random Forest | `results/high_accuracy/` |
+| Bagged DT | `results/extended/` |
+| Decision Tree | `results/extended/` |
+
+**Output → `main_results/`** (root-level folder):
+
+| File | Contents |
+|---|---|
+| `B01_binary_model_performance.png` | Bar chart: all 5 models, 4 metrics, binary task |
+| `B02_binary_confusion_matrix_comparison.png` | Confusion matrix grid, all 5 models |
+| `B03_binary_roc_comparison.png` | ROC curves with AUC, all 5 models |
+| `B04_binary_precision_recall_comparison.png` | PR curves with AUC, all 5 models |
+| `B05_binary_shap_importance_comparison.png` | SHAP bar charts, all 5 models |
+| `M01_four_class_model_performance.png` | Bar chart: all 5 models, 4-class task |
+| `M02_four_class_confusion_matrix_comparison.png` | Confusion matrices, 4-class |
+| `M03_four_class_macro_roc_comparison.png` | Macro ROC curves, 4-class |
+| `M04_four_class_classwise_roc.png` | Per-class OvR ROC for best model |
+| `M05_four_class_shap_importance_comparison.png` | SHAP bar charts, 4-class |
+
+**Expected time:** < 1 minute
 
 ---
 
